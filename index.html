@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"/><title>Late Dim Watermark Lab</title><link rel="stylesheet" href="styles.css"/></head>
+<body>
+<main>
+  <section class="panel">
+    <h1>Join 输出</h1>
+    <div id="status">boot</div>
+    <pre id="out"></pre>
+    <pre id="stats"></pre>
+  </section>
+  <section class="panel">
+    <h2>控制</h2>
+    <label>lateness <input id="lateness" type="number" value="5"/></label>
+    <button id="btn-load">Load</button>
+    <button id="btn-run">Run</button>
+    <button id="btn-export">Export</button>
+  </section>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
