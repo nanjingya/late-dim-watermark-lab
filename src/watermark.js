@@ -1,9 +1,12 @@
 export function createWatermark(lateness=0) {
-  let wm = -Infinity;
+  let maxTs = -Infinity;
   return {
-    observe(ts) { wm = Math.max(wm, ts); return wm; },
-    value() { return wm; },
-    allow(ts) { return ts <= wm; },
-    isLate(ts) { return ts < wm; },
+    observe(ts) {
+      maxTs = Math.max(maxTs, ts);
+      return this.value();
+    },
+    value() { return maxTs === -Infinity ? -Infinity : maxTs - lateness; },
+    allow(ts) { return ts <= this.value(); },
+    isLate(ts) { return ts < this.value(); },
   };
 }
